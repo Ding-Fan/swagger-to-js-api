@@ -1,0 +1,13 @@
+{
+  "name": "swagger-to-mini-program-api",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "Fan Ding <zichuange@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^10.5.2",
+    "ts-node": "^7.0.0",
+    "tslint": "^5.11.0",
+    "typescript": "^2.9.2"
+  }
+}
