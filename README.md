@@ -15,12 +15,12 @@ Tips: node 版本管理工具 [**nvm**](https://github.com/creationix/nvm) ， 
   - 最后一个参数可为 `cms` 或 `mini`。日后会针对后台、小程序等项目类别进行优化。
 
 ```bash
-npx ts-node index.ts demo.json cms
+npx node index.js demo.json cms
 ```
 
-然后会生成一个 `api.js` 文件。请随意使用！
+然后会生成一堆 `*.js` 文件。请随意使用！
 
-Tips: 当更新 `api.js` 时，可以使用 diff 工具，如果你用 vscode ，可以直接 compare file 。
+Tips: 当更新 `*.js` 时，可以使用 diff 工具，如果你用 vscode ，可以直接 compare file 。
 
 ---
 
