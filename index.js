@@ -14,7 +14,7 @@ const apiFilterOne = process
   .argv[3]
   .toLowerCase();
 
-const apiFilterTwo = '';
+let apiFilterTwo = '';
 if (process.argv[4]) {
   apiFilterTwo = process
     .argv[4]
