@@ -83,6 +83,109 @@ let main = async() => {
       let anApi = ''
       let innerObject = inputFileJson.paths[element][Object.keys(inputFileJson.paths[element])[0]];
       let summary = innerObject.summary;
+
+      let networkComment = '';
+
+      innerObject
+        .parameters
+        .splice(innerObject.parameters.findIndex(i => i. in === 'header'), 1);
+
+      innerObject
+        .parameters
+        .forEach(item => {
+
+          switch (item. in) {
+            case 'query':
+
+              networkComment += `${item.name}:`;
+              switch (item.type) {
+                case 'integer':
+                  networkComment += ` 0,`
+
+                  break;
+                case 'boolean':
+                  networkComment += ` true,`
+
+                  break;
+                case 'string':
+                  networkComment += ` '',`
+
+                  break;
+
+                default:
+                  break;
+              }
+              networkComment += '\n';
+              break;
+            case 'body':
+
+              let bodyDefinitions = inputFileJson.definitions[
+                item
+                  .schema['$ref']
+                  .replace('#/definitions/', '')
+              ];
+
+              if (bodyDefinitions.type === 'object') {
+                bodyDefinitions
+                  .required
+                  .forEach(item => {
+                    switch (bodyDefinitions.properties[item].type) {
+                      case 'string':
+                        console.log(bodyDefinitions.properties[item]);
+                        networkComment += `${item}:`;
+                        switch (bodyDefinitions.properties[item].type) {
+                          case 'integer':
+                            networkComment += ` 0,`
+
+                            break;
+                          case 'boolean':
+                            networkComment += ` true,`
+
+                            break;
+                          case 'string':
+                            networkComment += ` '',`
+
+                            break;
+
+                          default:
+                            break;
+                        }
+                        networkComment += '\n';
+
+                        break;
+
+                      default:
+                        break;
+                    }
+
+                  })
+              }
+
+              break;
+
+            default:
+              break;
+          }
+
+        });
+
+      if (networkComment) {
+        networkComment = `{
+          ${networkComment}
+        }`
+      }
+
+      networkComment = `
+/*------
+network() {
+  ${apiName}: async () => {
+    let {data, statusCode} = await ${apiName}(${networkComment});
+
+  }
+}
+------*/
+`
+
       if (apiFilterOne === 'cms') {
 
         switch (method) {
@@ -108,6 +211,8 @@ let main = async() => {
 
         anApi = `
         // ${summary}
+        ${networkComment}
+
         export const ${apiName} = data => {
           return HttpRequest({
             url: \`${apiUrl}\`,
@@ -140,6 +245,8 @@ let main = async() => {
 
         anApi = `
         // ${summary}
+        ${networkComment}
+
         export const ${apiName} = data => {
           return wepy.request({
             url: \`${baseUrl}${apiUrl}\`,
