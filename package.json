@@ -1,10 +1,7 @@
 {
   "name": "swagger-to-mini-program-api",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "index.js",
   "author": "Fan Ding <zichuange@gmail.com>",
   "license": "MIT",
-  "devDependencies": {
-    "node": "^10.7.0"
-  }
 }
