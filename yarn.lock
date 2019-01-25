@@ -2,12 +2,3 @@
 # yarn lockfile v1
 
 
-node-bin-setup@^1.0.0:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/node-bin-setup/-/node-bin-setup-1.0.6.tgz#4b5c9bb937ece702d7069b36ca78af4684677528"
-
-node@^10.7.0:
-  version "10.7.0"
-  resolved "https://registry.yarnpkg.com/node/-/node-10.7.0.tgz#6d3cf612232c901b3c0605c1ce755117203f08e7"
-  dependencies:
-    node-bin-setup "^1.0.0"

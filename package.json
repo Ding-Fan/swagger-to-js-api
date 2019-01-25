@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Fan Ding <zichuange@gmail.com>",
-  "license": "MIT",
+  "scripts": {
+    "go": "rm -rf service && rm api.json && curl https://api-fg-dev.dankal.cn/v1/v2/api-docs -o api.json && node index.js ./api.json '/cms/' mini"
+  },
+  "license": "MIT"
 }

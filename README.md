@@ -17,7 +17,7 @@ Tips: node 版本管理工具 [**nvm**](https://github.com/creationix/nvm) ， 
   - 最后两个参数第一个必填第二个选填。以 `demo.json` 为例，我需要小程序的接口，就填 `mini` 。我需要 web 商家端的接口，就填 `cms merchant` 。
 
 ```bash
-npx node index.js demo.json cms merchant # 如果你用的是自己的 node 就把 npx 去掉
+node index.js demo.json '/cwb/ministore/' mini # 如果你用的是自己的 node 就把 npx 去掉
 ```
 
 然后会在 `service/` 下生成一堆 `*.js` 文件。请随意使用！
