@@ -26,6 +26,6 @@ Tips: 当更新 `*.js` 时，可以使用 diff 工具，如果你用 vscode ，�
 
 ---
 
-**Inspired by [json2api](https://git.dankal.cn/Yjhenan/json2api)**
+**Inspired by [json2api](https://github.com/yjhenan/json2api)**
 
 **Thanks to @Zhao**
